@@ -1,0 +1,9 @@
+#! /bin/bash
+
+files="$(ls $HOME/malteos/monitorlayouts/$PCNAME)"
+chosen="$(echo "$files" | dmenu -i -c -fn 'pixelsize=20' -l 10)" || exit 1
+
+rm $MON_SCRIPT
+ln -s $HOME/malteos/monitorlayouts/$PCNAME/$chosen $MON_SCRIPT
+
+reloadmonitors
