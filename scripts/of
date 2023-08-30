@@ -42,6 +42,10 @@ sendfile () {
             send "$BROWSER $(cat $path)";;
         pdf)
             send "zathura --fork $path";;
+        lua)
+            dirpath=$(printgitdir $path)
+            echo $dirpath
+            send "alacritty -e nvim -c \"cd $dirpath\" $path";;
         mscz)
             send "MuseScore-4.0.0-x86_64.AppImage $path";;
         *)
