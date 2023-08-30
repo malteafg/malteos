@@ -7,5 +7,7 @@
 - clean: []
 - link: 
     ~/.local/share/fonts: fonts
+    ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc
+    ~/.config/polybar/config.ini: config/polybar.ini
 
 - shell: []

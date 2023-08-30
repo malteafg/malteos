@@ -3,7 +3,7 @@
 killall sxhkd
 
 [[ "$(setxkbmap -query | grep layout | awk '{print $NF}')" == "gfkl" ]] &&
-    cat ~/dotfiles/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc ||
-    cat ~/dotfiles/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc
+    cat ~/malteos/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc ||
+    cat ~/malteos/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc
 
 pgrep -x sxhkd > /dev/null || sxhkd &
