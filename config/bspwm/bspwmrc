@@ -29,7 +29,7 @@ bspc config gapless_monocle      true
 bspc config directional_focus_tightness low
 
 # WINDOW RULES
-bspc config external_rules_command "$HOME/dotfiles/config/bspwm/external-rules"
+bspc config external_rules_command "$HOME/malteos/config/bspwm/external-rules"
 
 bspc rule -a wgputut desktop=v state=floating
 bspc rule -a hw-architect desktop=v state=floating
