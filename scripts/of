@@ -42,7 +42,7 @@ sendfile () {
             send "$BROWSER $(cat $path)";;
         pdf)
             send "zathura --fork $path";;
-        lua)
+        lua|toml)
             dirpath=$(printgitdir $path)
             echo $dirpath
             send "alacritty -e nvim -c \"cd $dirpath\" $path";;
