@@ -14,7 +14,13 @@ super + equal
     alacritty -e nvim -c "SessionManager! load_session"
 
 super + shift + equal
-    alacritty -e nvim -c "Files $HOME/files/vimwiki/text"
+    alacritty -e nvim -c "cd files/vimwiki/text" -c "Telescope find_files"
+
+super + underscore
+    alacritty -e tui_bricks
+
+super + shift + underscore
+    alacritty --class float,float -e julia
 
 # MANAGE BSPWM
 # make sxhkd reload its configuration files:
@@ -23,20 +29,20 @@ super + shift + m
 
 # quit/restart bspwm
 super + ctrl + m
-	bspc wm -r
+    bspc wm -r
 
 # close and kill
 super + c
-	bspc node -c
+    bspc node -c
 
 # MOVEMENT
 # focus the node in the given direction
 super + {_,shift + }{h,n,e,i}
-	bspc node -{f,s} {west,south,north,east}
+    bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
 super + {_,ctrl + }{a,s,r,t,u,y,f,w,d,j,v,z,p}
-	bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,o,x}'
+    bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,o,x}'
 super + shift + {a,s,r,t,u,y,f,w,d,j,v,z,p}
     DIR={a,s,r,t,u,y,f,w,d,j,v,o,x}; \
     bspc node -d "$DIR"; \
