@@ -26,6 +26,8 @@ bash $HOME/malteos/install
 git clone https://github.com/malteafg/gfkl.git $HOME/repos/gfkl/ &&
     bash $HOME/repos/gfkl/linux/install || echo -e "ERROR unable install gfkl\n\n\n\n\n"
 
+ln -s $HOME/repos/gfkl/linux/setlayout $HOME/malteos/scripts/setlayout
+
 git clone https://github.com/malteafg/dmenu.git $HOME/repos/dmenu/ &&
     { cd $HOME/repos/dmenu; sudo make install; cd $HOME; } ||
     echo -e "ERROR unable to install dmenu\n\n\n\n\n"
