@@ -9,6 +9,7 @@ audio"
 
 layouts="wokmok
 us intl
+voyager
 danish"
 
 resets="monitors
@@ -36,8 +37,10 @@ case "$chosen" in
         case "$chosen" in
             "wokmok") setlayout -w;;
             "us intl") setlayout -u;;
+            "voyager") setlayout -v;;
             "danish") setlayout -d;;
         esac
+        xset r rate 200 25
         startsxhkd;;
 
     "pass")

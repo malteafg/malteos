@@ -2,8 +2,12 @@
 
 killall sxhkd
 
-[[ "$(setxkbmap -query | grep layout | awk '{print $NF}')" == "gfkl" ]] &&
-    cat ~/malteos/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc ||
-    cat ~/malteos/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc
+chosen=$(cat "$HOME/.cache/keyboard")
+case "$chosen" in
+    "wokmok" | "voyager")
+        cat ~/malteos/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc;;
+    "us-intl" | "danish")
+        cat ~/malteos/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc;;
+esac
 
 pgrep -x sxhkd > /dev/null || sxhkd &
