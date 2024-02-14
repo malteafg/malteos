@@ -11,7 +11,7 @@ super + backslash
     tsc
 
 super + p
-    alacritty -e nvim -c "SessionManager! load_session"
+    alacritty -e nvim +":autocmd VimEnter * SessionManager! load_session"
 
 super + shift + p
     alacritty -e nvim -c "cd files/vimwiki/text" -c "Telescope find_files"
