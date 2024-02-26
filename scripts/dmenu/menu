@@ -4,6 +4,7 @@ options="switch layout
 choose layout
 pass
 monitor
+guitarix
 resets
 audio"
 
@@ -48,6 +49,10 @@ case "$chosen" in
 
     "monitor")
         selectmon;;
+
+    "guitarix")
+        qjackctl &
+        guitarix &;;
 
     "resets")
         chosen="$(echo "$resets" | dmenu -i -ae -c -fn 'pixelsize=20' -l 7)" || exit 1

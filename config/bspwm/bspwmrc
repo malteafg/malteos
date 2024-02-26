@@ -31,13 +31,13 @@ bspc config directional_focus_tightness low
 # WINDOW RULES
 bspc config external_rules_command "$HOME/malteos/config/bspwm/external-rules"
 
-bspc rule -a wgputut desktop=v state=floating
 bspc rule -a hw-architect desktop=v state=floating
 bspc rule -a Steam desktop=w
 bspc rule -a Minecraf desktop=v
 bspc rule -a discord desktop=j
 bspc rule -a Code desktop=t
-bspc rule -a Guitarix desktop=r
+bspc rule -a Guitarix desktop=y
+bspc rule -a '*:qjackctl' desktop=y
 bspc rule -a Zathura state=tiled
 bspc rule -a pinentry-qt state=floating
 bspc rule -a float state=floating rectangle=1600x900+0+0 center=true
@@ -51,6 +51,5 @@ done
 
 if [[ "$1" = 1 ]]
 then
-    #sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL% 2> $HOME/pipewireerror.txt
     sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL%
 fi
