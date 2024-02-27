@@ -42,9 +42,9 @@ super + {_,shift + }{m,j,k,l}
 
 # focus or send to the given desktop
 super + {_,ctrl + }{a,s,d,f,i,o,u,x,c,v,z,y,h}
-    bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,o,x}'
+    bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,z,p}'
 super + shift + {a,s,d,f,i,o,u,x,c,v,z,y,h}
-    DIR={a,s,r,t,u,y,f,w,d,j,v,o,x}; \
+    DIR={a,s,r,t,u,y,f,w,d,j,v,z,p}; \
     bspc node -d "$DIR"; \
     bspc desktop -f "$DIR"
 

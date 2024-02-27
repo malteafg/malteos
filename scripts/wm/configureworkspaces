@@ -2,7 +2,7 @@
 
 MON1="a s r t v"
 MON2="u y f w d j"
-MON3="x o"
+MON3="z p"
 readarray -t MONITORS < $MON_CONF
 # xrandr --output ${MONITORS[0]} --primary
 
