@@ -5,7 +5,7 @@ super + m
     dmenu_recency
 
 super + {_, shift +} o
-    alacritty --class float,float -e {btop --utf-force,ranger}
+    alacritty --class float,float -e {btop --utf-force,julia}
 
 super + x
     tsc
@@ -13,14 +13,11 @@ super + x
 super + equal
     alacritty -e nvim +":autocmd VimEnter * SessionManager! load_session"
 
-super + shift + equal
+super + backslash
     alacritty -e nvim -c "cd files/vimwiki/text" -c "Telescope find_files"
 
 super + underscore
     alacritty -e tui_bricks
-
-super + shift + underscore
-    alacritty --class float,float -e julia
 
 # MANAGE BSPWM
 # make sxhkd reload its configuration files:
