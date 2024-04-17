@@ -7,8 +7,8 @@ fi
 
 sudo pacman -Syu openssh base-devel man-db man-pages inotify-tools git-lfs xorg-xinit xorg-xset\
   xorg-xrandr xorg-xev xwallpaper xclip xautolock i3lock xcape picom redshift bspwm sxhkd polybar\
-  neovim alacritty zathura zathura-pdf-mupdf htop discord arandr ranger myrepos texlive-bin\
-  texlive-core texlive-binextra texlive-latexextra zsh exa fzf fd bat pass maim imagemagick wget ripgrep exfatprogs\
+  neovim alacritty zathura zathura-pdf-mupdf htop discord arandr ranger myrepos \
+  zsh exa fzf fd bat pass maim imagemagick wget ripgrep exfatprogs\
   firefox || echo -e "ERROR unable to install packages using pacman\n\n\n\n\n" && exit 1
 
 git clone https://aur.archlinux.org/yay-bin.git $HOME/repos/yay-bin/ &&
