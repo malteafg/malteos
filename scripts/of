@@ -30,6 +30,15 @@ while getopts ":hend" opt; do
     esac
 done
 
+check_cmd () {
+    if command -v "$1" &> /dev/null
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
 send () {
     echo "$1" >> $HOME/.cache/ofcmd
 }
@@ -69,7 +78,12 @@ sendfile () {
 }
 
 findfile () {
-    preview="bat --color=always --style=numbers --line-range=:500 $HOME_PATH{}"
+    if check_cmd "bat"; then
+        preview="bat --color=always --style=numbers --line-range=:500 $HOME_PATH{}"
+    else
+        preview="cat -n $HOME_PATH{}"
+    fi
+        
     fd . $SEARCH_DIRS $HOME_DIR -t f $EXCLUDED_DIRS | 
         fzf -m --preview="$preview" | while read line ; do
         sendfile "$line"
