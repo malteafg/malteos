@@ -1,7 +1,6 @@
 #!/bin/bash
 
-options="switch layout
-choose layout
+options="choose layout
 pass
 monitor
 guitarix
@@ -24,24 +23,9 @@ sxhkd"
 chosen="$(echo "$options" | dmenu -i -ae -c -fn 'pixelsize=20' -l 10)" || exit 1
 
 case "$chosen" in
-    "switch layout")
-        if [[ "$(setxkbmap -query | grep layout | awk '{print $NF}')" == "gfkl" ]]
-        then
-            setlayout -u
-        else
-            setlayout -w
-        fi
-        startsxhkd;;
-
     "choose layout")
-        chosen="$(echo "$layouts" | dmenu -i -ae -c -fn 'pixelsize=20' -l 4)" || exit 1
-        case "$chosen" in
-            "wokmok") setlayout -w;;
-            "us intl") setlayout -u;;
-            "voyager") setlayout -v;;
-            "danish") setlayout -d;;
-        esac
-        xset r rate 200 25
+        setlayout dmenu
+        setrate
         startsxhkd;;
 
     "pass")
@@ -61,10 +45,11 @@ case "$chosen" in
             "workspaces") configureworkspaces;;
             "background") setbg;;
             "polybar") startpolybar;;
-            "rate") xset r rate 200 25;;
+            "rate") setrate;;
             "dimensions") fixdimensions;;
             "sxhkd") startsxhkd;;
         esac;;
+
     "audio")
         audio;;
 esac

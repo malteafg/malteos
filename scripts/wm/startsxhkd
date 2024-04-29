@@ -4,9 +4,9 @@ killall sxhkd
 
 chosen=$(cat "$HOME/.cache/keyboard")
 case "$chosen" in
-    "wokmok" | "voyager")
+    "wokmok" | "wokmok_dk" | "wokmok_us" | "layer5_wokmok_dk" | "layer5_wokmok_us" | "custom")
         cat ~/malteos/config/sxhkd/{base,wokmok} > ~/.config/sxhkd/sxhkdrc;;
-    "us-intl" | "danish")
+    "us" | "dk" | "layer5_us" | "layer5_dk")
         cat ~/malteos/config/sxhkd/{base,qwerty} > ~/.config/sxhkd/sxhkdrc;;
 esac
 
