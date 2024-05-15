@@ -7,6 +7,7 @@ then
     redshift -l 57.01:9.58 &
     # gitwatch ~/repos/vimwiki &
     # setlayout "$DEFAULT_KEYBOARD_LAYOUT"
+    setxkbmap -option compose:menu
     startsxhkd
     picom -b &
     bluetoothctl power off &
@@ -44,7 +45,7 @@ bspc rule -a float state=floating rectangle=1600x900+0+0 center=true
 bspc rule -a mpv state=floating rectangle=1600x900+0+0 center=true
 
 steamlib=/home/malte/.local/share/Steam
-mygames=$(ls $steamlib/steamapps/appmanifest_*.acf | sed 's/[^0-9]*//g')    # this sed command removes everything but the digits
+mygames=$(ls $steamlib/steamapps/appmanifest_*.acf | sed 's/[^0-9]*//g')
 for game in $mygames; do
     bspc rule -a steam_app_$game desktop=v
 done
