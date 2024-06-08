@@ -1,35 +1,58 @@
 #!/bin/bash
 
-dlvideo=false
-saved=""
+base_path="$HOME/largefiles/"
+video_path=""
 OPTIND=1
 
 while getopts ":vbg" opt; do
     case $opt in
-        v) dlvideo=true;;
-        b) saved="bass";;
-        g) saved="guitar";;
+        v) video_path="/videos";;
+        b) video_path="/videos/tuts/bass";;
+        g) video_path="/videos/tuts/guitar";;
         \?)
             echo "Invalid option: -$OPTARG" >&2
             exit
             ;;
     esac
 done
-
 shift $((OPTIND-1))
 
-if [[ $# -ne 2 && $# -ne 3 ]] ; then
+if [[ $# -ne 2 ]] ; then
+    echo 'Usage: dl [-vbg] file_name "url"'
     exit 0
 fi
 
-if [ -z "$saved" ]; then
-    if [ "$dlvideo" = true ]; then
-        yt-dlp -o $HOME/largefiles/saved/videos/$1.webm "$2"
-    fi
-
-    yt-dlp -x --audio-format wav -o $HOME/largefiles/saved/music/$1.wav "$2" &&
-    ffmpeg -i $HOME/largefiles/saved/music/$1.wav -acodec mp3 \
-$HOME/largefiles/saved/spotify/$1.mp3
-else
-    yt-dlp -o $HOME/largefiles/saved/playtuts/$saved/$1.webm "$2"
+if [ -n "$video_path" ]; then
+    yt-dlp -o "$base_path$video_path/$1.webm" "$2"
 fi
+# downloads audio only
+# yt-dlp -x --audio-format wav -o $HOME/largefiles/$1.wav "$2" &&
+
+
+# translates downloaded audio to mp3 format
+# ffmpeg -i $HOME/largefiles/$1.wav -acodec mp3 $HOME/largefiles/$1.mp3
+
+
+
+
+
+# old stuff
+
+
+# yt-dlp -x --audio-format wav -o $HOME/largefiles/$1.wav "$2" &&
+# ffmpeg -i $HOME/largefiles/$1.wav -acodec mp3 \
+#     $HOME/largefiles/$1.mp3
+
+
+
+# if [ -z "$saved" ]; then
+#     if [ "$dlvideo" = true ]; then
+#         yt-dlp -o $HOME/largefiles/saved/videos/$1.webm "$2"
+#     fi
+
+#     yt-dlp -x --audio-format wav -o $HOME/largefiles/$1.wav "$2" &&
+#     ffmpeg -i $HOME/largefiles/$1.wav -acodec mp3 \
+# $HOME/largefiles/$1.mp3
+# else
+#     yt-dlp -o $HOME/largefiles/saved/playtuts/$saved/$1.webm "$2"
+# fi
