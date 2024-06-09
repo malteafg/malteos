@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Git stuff for mr #############################################################
+MR_DEFAULT_PATH="$HOME/malteos/config/myrepos/default.mrconfig"
+function ci() { mr -d $HOME -c $MR_DEFAULT_PATH -n 2 record }
+function st() { mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 status }
+function addall() { mr -d $HOME -c $MR_DEFAULT_PATH -n 2 -j9 run command git add --all }
+
+function fetch() {
+    eval `ssh-agent` && ssh-add
+    mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 fetch
+    kill $SSH_AGENT_PID
+}
+
+function pull() {
+    eval `ssh-agent` && ssh-add
+    mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 update
+    kill $SSH_AGENT_PID
+}
+
+function push() {
+    eval `ssh-agent` && ssh-add
+    mr -d $HOME -c $MR_DEFAULT_PATH -i -n 2 -j9 push
+    kill $SSH_AGENT_PID
+}
+
+MR_LARGE_PATH="$HOME/malteos/config/myrepos/large.mrconfig"
+function lci() { mr -d $HOME -c $MR_LARGE_PATH -n 2 record }
+function lst() { mr -d $HOME -c $MR_LARGE_PATH -i -n 2 -j9 status }
+function laddall() { mr -d $HOME -c $MR_LARGE_PATH -n 2 -j9 run command git add --all }
+function lfetch() { mr -d $HOME -c $MR_LARGE_PATH -n 2 -j9 fetch }
+function lpull() { mr -d $HOME -c $MR_LARGE_PATH -i -n 2 -j9 update }
+function lpush() { mr -d $HOME -c $MR_LARGE_PATH -n 2 -j9 push }
+

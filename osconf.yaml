@@ -10,4 +10,7 @@
     ~/.config/bspwm/bspwmrc: config/bspwm/bspwmrc
     ~/.config/polybar/config.ini: config/polybar.ini
 
+    # ~/.default.mrconfig: config/myrepos/default.mrconfig
+    ~/.mrtrust: config/myrepos/mrtrust
+
 - shell: []
