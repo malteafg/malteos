@@ -30,7 +30,7 @@ case "$chosen" in
         startsxhkd;;
 
     "pass")
-        passmenu &;;
+        alacritty --class float,float -e passmenu ;;
 
     "monitor")
         selectmon;;
