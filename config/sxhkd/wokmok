@@ -16,17 +16,8 @@ super + y
 super + shift + y
     alacritty -e nvim -c "cd files/vimwiki/text" -c "Telescope find_files"
 
-super + minus
+super + equal
     alacritty -e tui_bricks
-
-# MANAGE BSPWM
-# make sxhkd reload its configuration files:
-super + shift + m
-    pkill -USR1 -x sxhkd
-
-# quit/restart bspwm
-super + ctrl + m
-    bspc wm -r
 
 # close and kill
 super + c
@@ -38,9 +29,9 @@ super + {_,shift + }{h,n,e,o}
     bspc node -{f,s} {west,south,north,east}
 
 # focus or send to the given desktop
-super + {_,ctrl + }{a,s,r,t,u,equal,f,w,d,j,v,z,p}
+super + {_,ctrl + }{a,s,r,t,u,underscore,f,w,d,j,v,z,p}
     bspc {desktop -f,node -d} '{a,s,r,t,u,y,f,w,d,j,v,z,p}'
-super + shift + {a,s,r,t,u,equal,f,w,d,j,v,z,p}
+super + shift + {a,s,r,t,u,underscore,f,w,d,j,v,z,p}
     DIR={a,s,r,t,u,y,f,w,d,j,v,z,p}; \
     bspc node -d "$DIR"; \
     bspc desktop -f "$DIR"

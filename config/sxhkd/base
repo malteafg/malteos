@@ -2,26 +2,20 @@
 # BASE CONFIG
 
 # LAUNCH PROGRAMS
-super + Return
-	$TERMI
-
 F12
     menu
+
+super + Return
+	$TERMI
 
 super + shift + Return
     ofwrapper -hend
 
-super + g
-    brave
-
-super + {shift +, ctrl +} g
-    google-chrome-stable {_,-incognito}
-
 super + {_, shift +} space
     ofwrapper {-hen,-n}
 
-super + {_, shift +} apostrophe
-    alacritty --class float,float {-e julia,_}
+super + g
+    brave
 
 # MANAGE BSPWM
 super + q
