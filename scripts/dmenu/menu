@@ -31,7 +31,8 @@ case "$chosen" in
         startsxhkd;;
 
     "pass")
-        alacritty --class float,float -e passmenu ;;
+        # alacritty --class float,float -e passmenu ;;
+        passdmenu &;;
 
     "monitor")
         selectmon;;
