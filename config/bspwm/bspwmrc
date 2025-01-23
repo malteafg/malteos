@@ -11,6 +11,8 @@ then
     startsxhkd
     picom -b &
     bluetoothctl power off &
+    # gpg-connect-agent updatestartuptty /bye >/dev/null
+    # gpg-connect-agent reloadagent /bye
 fi
 
 # configureworkspaces "$1"
@@ -54,4 +56,5 @@ done
 if [[ "$1" = 1 ]]
 then
     sleep 10; amixer -D pipewire sset 'Master' $AUDIO_VOL%
+    spotify_player -d
 fi

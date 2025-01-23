@@ -37,13 +37,16 @@ super + {comma,period}
 
 # AUDIO
 XF86AudioPlay
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    spotify_player playback play-pause
+    # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
 
 XF86AudioPrev
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    spotify_player playback previous
+    # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
 XF86AudioNext
-    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    spotify_player playback next
+    # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
 XF86AudioMute
     amixer -D pipewire sset Master toggle
@@ -51,8 +54,14 @@ XF86AudioMute
 XF86AudioRaiseVolume
     amixer -D pipewire sset Master 5%+
 
+shift + XF86AudioRaiseVolume
+    spotify_player playback volume --offset -- 5
+
 XF86AudioLowerVolume
     amixer -D pipewire sset Master 5%-
+
+shift + XF86AudioLowerVolume
+    spotify_player playback volume --offset -- -5
 
 # LAPTOP
 XF86MonBrightnessUp

@@ -16,8 +16,9 @@ resets="monitors
 workspaces
 background
 polybar
+keyd
 rate
-dimensions
+fixdimensions
 sxhkd
 dkletters"
 
@@ -46,8 +47,9 @@ case "$chosen" in
             "workspaces") configureworkspaces;;
             "background") setbg;;
             "polybar") startpolybar;;
+            "keyd") alacritty --class float,float -e sudo systemctl restart keyd;;
             "rate") setrate;;
-            "dimensions") fixdimensions;;
+            "fixdimensions") fixdimensions;;
             "sxhkd") startsxhkd;;
             "dkletters") setxkbmap -option compose:menu;;
         esac;;
