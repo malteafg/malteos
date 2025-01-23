@@ -44,10 +44,16 @@ XF86AudioPrev
     spotify_player playback previous
     # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 
+shift + XF86AudioPrev
+    spotify_player playback seek -- -10000
+
 XF86AudioNext
     spotify_player playback next
     # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
 
+shift + XF86AudioNext
+    spotify_player playback seek -- 10000
+    
 XF86AudioMute
     amixer -D pipewire sset Master toggle
 
