@@ -37,19 +37,19 @@ super + {comma,period}
 
 # AUDIO
 XF86AudioPlay
-    spotify_player playback play-pause
-    # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    # spotify_player playback play-pause
 
 XF86AudioPrev
-    spotify_player playback previous
-    # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+    # spotify_player playback previous
 
 shift + XF86AudioPrev
     spotify_player playback seek -- -10000
 
 XF86AudioNext
-    spotify_player playback next
-    # dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    # spotify_player playback next
 
 shift + XF86AudioNext
     spotify_player playback seek -- 10000
