@@ -55,7 +55,7 @@ sendfile () {
             dirpath=$(printgitdir $path)
             send "alacritty -e nvim -c \"cd $dirpath\" $path";;
         mscz)
-            send "MuseScore-4.0.0-x86_64.AppImage $path";;
+            send "mscore $path";;
         *)
             filetype=$(file --mime-type $path | cut -d\  -f2)
             case $filetype in
